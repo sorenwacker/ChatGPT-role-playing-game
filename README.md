@@ -20,7 +20,7 @@ Store your openai API key as environment variable.
 
 ### Start the backend
 
-   ./backend/start.sh
+    ./backend/start.sh
    
 ### Start the frontend
 
