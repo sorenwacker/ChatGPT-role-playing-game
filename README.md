@@ -16,5 +16,13 @@ Store your openai API key as environment variable.
     pip install -r requirements.txt
     cd frontend && npm install
     
-    
-  
+## Start the game
+
+### Start the backend
+
+   ./backend/start.sh
+   
+### Start the frontend
+
+    cd frontend && npm start
+
