@@ -13,7 +13,8 @@ Store your openai API key as environment variable.
 
 ## Install the requirements
 
-    pip install -r requirements.txt
+    conda env create --file environment.yml
+    conda activate chatbot
     cd frontend && npm install
     
 ## Start the game
