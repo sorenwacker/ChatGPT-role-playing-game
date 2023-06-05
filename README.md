@@ -6,7 +6,7 @@ This innovative tool grants you unparalleled freedom, offering the ability to en
 
 Once your unique character is forged, you're ready to embark on your bespoke adventure. This smart AI will intricately weave stories tailored to your choices, lending an unpredictable and thrilling layer to your role-playing experience.
 
-Whether you're a seasoned role-player or a curious beginner, the "AI-Driven Role Playing Game Master" opens up a new world of limitless, AI-guided storytelling. It's not just a game, it's your personalized epic.
+Whether you're a seasoned role-player or a curious beginner, this tool opens up a new world of limitless, AI-guided storytelling. It's not just a game, it's your personalized epic.
 
 
 # Requirements
