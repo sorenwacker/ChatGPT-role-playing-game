@@ -1,6 +1,6 @@
 # ChatGPT role playing game
 
-Experience an immersive and dynamic adventure with this captivating GitHub project: "AI-Driven Role Playing Game Master". Leveraging the sophisticated capabilities of GPT-3.5, we've transformed artificial intelligence into an interactive, virtual game master for pen and paper role-playing games.
+Experience an immersive and dynamic adventure with this captivating GitHub project. Leveraging the sophisticated capabilities of GPT-3.5, we've transformed artificial intelligence into an interactive, virtual game master for pen and paper role-playing games.
 
 This innovative tool grants you unparalleled freedom, offering the ability to engage in virtually any universe you desire, from the legendary landscapes of Dungeons & Dragons to the action-packed world of Marvel, or even the mystical realm of Das Schwarze Auge. Simply brief the AI about your chosen universe, and watch as it masterfully takes you through the intricacies of character generation.
 
