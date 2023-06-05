@@ -6,10 +6,9 @@ import tiktoken
 
 from fastapi import FastAPI, WebSocket
 
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
-
 
 
 storyteller = """
@@ -30,8 +29,9 @@ storyteller = """
         """
 
 HISTORY = [
-    {"role": "system", 
-     "content": """
+    {
+        "role": "system",
+        "content": """
      
      You are a guide telling an interactive free story where people can do anything they want.
      Ask me in what world the story is taking place. 
@@ -48,10 +48,9 @@ HISTORY = [
      poor, royal?? If I am a priest what deity do I serve? Mention the deities which are available. Ask this questions one by one and refine the ansers. 
      Then provide a summary of the main character and its abilitys and equiptment.
      Finally, let the game begin!
-     """
+     """,
     },
 ]
-
 
 
 def get_answer(text):
@@ -60,22 +59,19 @@ def get_answer(text):
 
     print(len(HISTORY))
 
-    print(f'N tokens: {len(encoding.encode(str(HISTORY)))}' )
+    print(f"N tokens: {len(encoding.encode(str(HISTORY)))}")
     summarize_history()
-    print(f'N tokens: {len(encoding.encode(str(HISTORY)))}' )
-
+    print(f"N tokens: {len(encoding.encode(str(HISTORY)))}")
 
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=HISTORY,
-        #max_tokens=500
-
+        # max_tokens=500
     )
 
-    answer = completion.choices[0].message['content']
+    answer = completion.choices[0].message["content"]
     HISTORY.append({"role": "assistant", "content": answer})
 
-    
     return answer
 
 
@@ -83,25 +79,33 @@ def summarize_history():
     global HISTORY
 
     if len(HISTORY) >= 36:
-        
-        print('Summarizing history')
+        print("Summarizing history")
         # Generate summary only for messages from index 1 to 19
-        summary_prompt = " ".join([message["content"] for message in HISTORY[1:20]]) + "\n\nSummarize this conversation:"
+        summary_prompt = (
+            " ".join([message["content"] for message in HISTORY[1:20]])
+            + "\n\nSummarize this conversation:"
+        )
 
         completion = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
-            messages=[{"role": "system", "content": "You are a skilled summarizer. Please create a concise summary of the following conversation. take notes, use as little words as possible"}, 
-                    {"role": "user", "content": summary_prompt}],
-             max_tokens=500
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are a skilled summarizer. Please create a concise summary of the following conversation. take notes, use as little words as possible",
+                },
+                {"role": "user", "content": summary_prompt},
+            ],
+            max_tokens=500,
         )
 
-        summary = completion.choices[0].message['content']
+        summary = completion.choices[0].message["content"]
 
         # Replace messages from index 1 to 19 with the summary
         HISTORY[1:40] = [{"role": "assistant", "content": summary}]
 
 
 app = FastAPI()
+
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
